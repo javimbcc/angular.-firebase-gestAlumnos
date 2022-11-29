@@ -1,1 +1,10 @@
-<p>registrar-alumnos works!</p>
+<form [formGroup]="formulario" (submit)="onSubmit()">
+  Id:
+  <input type="text" class="form-control" formControlName="id" />
+  Nombre:
+  <input type="text" class="form-control" formControlName="nombre" /> Familia:
+  <input type="text" class="form-control" formControlName="apellido" /> Precio:
+  <input type="text" class="form-control" formControlName="numero" /> Stock:
+  <input type="text" class="form-control" formControlName="email" />
+  <button class="btn btn-dark" type="submit">Enviar</button>
+</form>

@@ -9,6 +9,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ListaAlumnosComponent } from './components/lista-alumnos/lista-alumnos.component';
 import { RegistrarAlumnosComponent } from './components/registrar-alumnos/registrar-alumnos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { RegistrarAlumnosComponent } from './components/registrar-alumnos/regist
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore())
   ],
