@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Mascota } from 'src/app/interfaces/mascota';
 import { MascotasServiceService } from 'src/app/services/mascotas-service.service';
 
@@ -9,17 +10,15 @@ import { MascotasServiceService } from 'src/app/services/mascotas-service.servic
 })
 export class DetallesMascotasComponent implements OnInit {
   mascota?: Mascota;
-  constructor(private msService: MascotasServiceService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private mService: MascotasServiceService
+  ) {}
 
-  getMascotas() {
-    this.msService.getMascota().subscribe((mascota) => {
-      mascota.forEach((data) => {
-        this.mascota = data;
-      });
-    });
+  getmascota() {
+
+    this.mService.getUnaMascota(this.route.snapshot.paramMap.get("id")!.toString())
   }
 
-  ngOnInit(): void {
-    this.getMascotas();
-  }
+  ngOnInit(): void {this.getmascota()}
 }
