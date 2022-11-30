@@ -11,11 +11,15 @@ export class DetallesMascotasComponent implements OnInit {
   mascota?: Mascota;
   constructor(private msService: MascotasServiceService) {}
 
-  async getInfoContacto() {
-    this.msService.getUnaMascota(this.mascota!);
+  getMascotas() {
+    this.msService.getMascota().subscribe((mascota) => {
+      mascota.forEach((data) => {
+        this.mascota = data;
+      });
+    });
   }
 
   ngOnInit(): void {
-    this.getInfoContacto();
+    this.getMascotas();
   }
 }
