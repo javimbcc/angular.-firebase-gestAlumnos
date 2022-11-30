@@ -1,0 +1,11 @@
+<h1 class="m-2">Lista de mascotas</h1>
+<div class="card w-50 m-2" *ngFor="let m of mascotas">
+  <div class="card-body">
+    <h5 class="card-title">{{ m.nombre }}</h5>
+    <p class="card-text">Edad: {{m.edad}}</p>
+    <p class="card-text">Sexo: {{m.sexo}}</p>
+    <button class="btn btn-dark" (click)="deleteMascota(m)">
+      Eliminar
+    </button>
+  </div>
+</div>
